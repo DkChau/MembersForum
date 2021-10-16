@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    title Members Only
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    div(class='navContainer')
+      form(action='/', method='get')
+        button(class='logo', type='submit') Members Only
+      div(class='navLinks')
+        if currentUser!==null
+          if !currentUser.member
+            form(action='/secret', method='get')
+              button(type='submit') Become an member
+          else if !currentUser.admin
+            form(action='/secret-admin', method='get')
+              button(type='submit') Become an admin         
+
+          if currentUser.member || currentUser.admin
+            form(action='create-message', method='get')
+              button(type='submit') Create new message
+
+          form(action='/log-out', method='get')
+            button(type='submit') Log out
+        else 
+          form(action='/sign-up', method='get')
+            button(type='submit') Sign up
+          form(action='/login', method='get')
+            button(type='submit') Log in
+      
+    block content
+    block message

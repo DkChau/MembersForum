@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  if currentUser!==null
+    div(class='marginTop')
+      if currentUser.admin 
+        div(class='welcome') Welcome admin #{currentUser.username}
+      else if currentUser.member 
+        div(class='welcome') Welcome member #{currentUser.username}
+      else 
+        div(class='welcome') Welcome #{currentUser.username}
+
+block message
+  ul(class='indexContainer') 
+    if messages.length!==0
+      for message in messages 
+        div(class='messageContainer') 
+
+            li(class='textHeading')=message.title
+            li(class='textContainer')=message.message
+            div(class='bottomRow')
+                div  
+                    li Hidden Date
+                    li Hidden User
+    else 
+      div No messages

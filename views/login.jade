@@ -1,0 +1,16 @@
+extends layout 
+
+block content 
+    div(class='columnForm')
+        h1(class='routeHeading') LOGIN 
+        if error_messages
+            li(class='error')=error_messages
+        if messages!==null
+            for message in messages 
+                li(class='error')=message.msg
+        form(action='login', method='post' ,class='formContainer')
+            label(for='username', class='inputLabel') Username 
+            input(type='text', name='username')
+            label(for='password', class='inputLabel') Password 
+            input(type='password', name='password' )
+            button(type='submit', class='submitBtn') Submit

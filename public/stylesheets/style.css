@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+body{
+  font-family: 'Roboto', sans-serif;
+  width:100%;
+  height:auto;
+  overflow-y: scroll;
+  background-color: #262727;
+  color:white;
+}
+*,*:before, *:after{
+  box-sizing: border-box;
+  padding:0;
+  margin:0;
+}
+/* General css */
+.columnForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.marginTop {
+  margin-top: 60px;
+}
+.inputLabel {
+  font-size: 24px;
+  font-weight: 200;
+  margin-bottom: 5px;
+}
+input {
+  margin-bottom: 40px;
+  height: 30px;
+  font-size:16px;
+}
+textarea {
+  height: 100px;
+  margin-bottom: 40px;
+}
+.routeHeading {
+  padding: 30px 0;
+  margin:0;
+}
+.submitBtn {
+  height: 30px;
+  font-size: 18px;
+  width: 200px;
+  justify-self: center;
+  align-self: center;
+}
+.deleteMsg {
+  padding:5px 10px;
+}
+
+/* Nav Bar  Start*/
+.logo {
+  font-size: 2rem;
+  padding:.25rem .5rem;
+  font-weight:700;
+  font-family:'Open Sans'
+}
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5% 3%;
+}
+.navLinks {
+  display: flex;
+}
+.navLinks button {
+  margin:0 .5rem;
+  padding:.15rem .35rem;
+  font-size:1.15rem;
+}
+/* Nav Bar End */
+
+li {
+  list-style: none;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+button {
+  text-decoration: none;
+  border: 1px solid white;
+  background: none;
+  color: white;
+}
+.error{
+  text-align: center;
+  padding:5px 0;
+  font-size: 16px;
+}
+
+/* Index Css */
+.indexContainer {
+  display: flex;
+  margin-top: 40px;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.welcome {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 24px;
+}
+.messageContainer {
+  width: 600px;
+  margin: 20px;
+  display: flex;
+  text-align: start;
+  background: #3b444b;
+  border-radius: 15px;
+  padding: 20px 30px;
+  border: 2px solid white;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  transition: padding 0.3s, width 0.3s;
+
+}
+/* .messageContainer:hover{
+  width:605px;
+  padding: 23px 30px;
+} */
+.messageContainer li {
+  width: 100%;
+  margin: 3px 0;
+}
+.bottomRow {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.textContainer{
+  overflow-x: hidden;
+  padding:20px 0;
+  text-align: start;
+  font-size: 16px;
+  white-space: pre-wrap;
+}
+.textHeading{
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Create message css */
+.formContainer {
+  width: 80%;
+  max-width: 800px;
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.newMsgContainer {
+  width: 80%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+}
+
+input[type='password']{
+  font: small-caption;
+  font-size: 16px;
+}

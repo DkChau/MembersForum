@@ -1,0 +1,17 @@
+extends layout 
+
+block content
+    div(class='columnForm')
+        h1(class='routeHeading') SIGN UP 
+        div(class='errorContainer')
+            if messages!==null
+                for error in messages 
+                    li(class='error')=error.msg
+        form(action='sign-up', method='post', class='formContainer')
+            label(for='username', class='inputLabel') Username 
+            input(type='text', name='username')
+            label(for='password', class='inputLabel') Password 
+            input(type='password', name='password')
+            label(for='confirmPassword', class='inputLabel') Confirm Password 
+            input(type='password', name='confirmPassword')
+            button(type='submit', class='submitBtn') Submit form
