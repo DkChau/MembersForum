@@ -15,12 +15,20 @@ block message
     if messages.length!==0
       for message in messages 
         div(class='messageContainer') 
-
-            li(class='textHeading')=message.title
-            li(class='textContainer')=message.message
+          li(class='textHeading')=message.title
+          li(class='textContainer')=message.message
+          if currentUser
+            div(class='bottomRow') 
+              div
+                li Date: #{message.dateAdded}
+                li User: #{message.user.username} 
+              if currentUser.admin 
+                form(action='/delete/'+message._id, method='get')
+                  button(type='submit', class='deleteMsg') Delete
+          else
             div(class='bottomRow')
-                div  
-                    li Hidden Date
-                    li Hidden User
+              div  
+                li Hidden Date
+                li Hidden User
     else 
       div No messages

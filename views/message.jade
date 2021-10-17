@@ -1,0 +1,14 @@
+extends layout 
+
+block content
+    div(class='columnForm')
+        h1(class='routeHeading') Create new message
+        if errors 
+            for error in errors 
+                li(class='error')=error.msg
+        form(action='create-message', method='post', class='newMsgContainer')
+            label(for='title', class='inputLabel') Title (Required) 
+            input(name='title', type='text')
+            label(for='text', class='inputLabel') Text (Required) 
+            textarea(name='text', type='text')
+            button(type='submit', class='submitBtn') Submit Message

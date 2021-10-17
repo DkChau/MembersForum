@@ -132,3 +132,92 @@ exports.postSignUp = [
         }
     }
 ]
+
+exports.getCreate = function (req,res,next){
+    res.render('message', {errors:null})
+}
+
+exports.postCreate = [
+    check("title")
+      .notEmpty()
+      .withMessage("Title cannot be empty")
+      .trim()
+      .escape(),
+
+    check("text")
+      .notEmpty()
+      .withMessage("Text cannot be empty")
+      .trim()
+      .escape(),
+
+    (req, res, next) => {
+        console.log(req.user)
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            res.render("message", { errors: errors.errors });
+        } 
+        else {
+            let message = new Message({
+                user: req.user._id,
+                title: req.body.title,
+                message: req.body.text,
+            })
+            .save(function (err) {
+            if (err) {
+                return next(err);
+            }
+            res.redirect("/");
+            });
+        }
+    }
+]
+
+exports.getSecretMember = function(req,res,next){
+    res.render("secretMember", {message:null});
+}
+
+exports.postSecretMember = [
+    check("secretPassword")
+        .trim()
+        .escape(),
+    (req, res, next) => {
+        if(req.body.secretPassword === process.env.SECRET_MEMBER) {
+            User.findById(req.user._id).then((user) => {
+                user.member = true;
+                user.save(function (err) {
+                    if (err) {
+                    return next(err);
+                    }
+                    res.redirect("/");
+                });
+            })
+        }
+        else {
+            res.render("secretMember", { message: "Wrong password" });
+        }
+    }
+]
+
+exports.getSecretAdmin = function(req,res,next){
+    res.render("secretAdmin", {message:null});
+}
+
+exports.postSecretAdmin = [
+    check("secretPassword").trim().escape(),
+    (req, res, next) => {
+        if (req.body.secretPassword === process.env.SECRET_ADMIN) {
+          User.findById(req.user._id).then((user) => {
+            user.admin = true;
+            user.save(function (err) {
+              if (err) {
+                return next(err);
+              }
+              res.redirect("/");
+            });
+          });
+        } 
+        else {
+          res.render("secretAdmin", { message: "Wrong password" });
+        }
+      }
+]
