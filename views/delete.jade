@@ -1,0 +1,16 @@
+extends layout 
+
+block content
+    div(class='columnForm marginTop')
+        h1 Delete this message?
+        if message 
+        div(class='messageContainer') 
+          li(class='textHeading')=message.title
+          li(class='textContainer')=message.message
+          if currentUser
+            div(class='bottomRow') 
+              div
+                li Date: #{message.dateAdded}
+                li User: #{message.user.username} 
+        form(method='post', action='', class='formContainer')
+            button(type='submit', class='submitBtn') Delete

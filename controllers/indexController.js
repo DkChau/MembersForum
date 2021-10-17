@@ -173,7 +173,13 @@ exports.postCreate = [
 ]
 
 exports.getSecretMember = function(req,res,next){
-    res.render("secretMember", {message:null});
+    if(req.user.admin){
+        res.redirect('/')
+    }
+    else{
+        res.render("secretMember", {message:null});
+    }
+    
 }
 
 exports.postSecretMember = [
@@ -221,3 +227,33 @@ exports.postSecretAdmin = [
         }
       }
 ]
+
+exports.getDeleteMsg = function(req,res,next){
+    let deleteMessage = Message.findById(req.params.id)
+                        .populate("user")
+                        .exec()
+    
+    deleteMessage.then((message, err) => {
+      if (err) {
+        return next(err);
+      }
+
+      if (!message) {
+        res.redirect("/");
+      }
+      else{
+          res.render("delete", { message: message });
+      }
+    });
+}
+
+exports.postDeleteMsg = function(req,res,next){
+    Message.findOneAndDelete({ _id: req.params.id }, (err) => {
+        if (err) {
+          return next(err);
+        }
+        else{
+            res.redirect("/");
+        }
+    });    
+}

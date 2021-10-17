@@ -35,4 +35,8 @@ router.get('/secret-admin', accessController.isMember, indexController.getSecret
 
 router.post('/secret-admin', accessController.isMember, indexController.postSecretAdmin)
 
+router.get('/delete/:id', accessController.validId, accessController.isAdmin, indexController.getDeleteMsg)
+
+router.post('/delete/:id', accessController.validId, accessController.isAdmin, indexController.postDeleteMsg)
+
 module.exports = router;

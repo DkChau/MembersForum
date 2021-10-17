@@ -8,6 +8,8 @@ let passport = require("passport");
 let session = require("express-session");
 let User = require("./models/User");
 const flash = require("connect-flash");
+const compression = require('compression');
+const helmet = require('helmet');
 
 var indexRouter = require('./routes/index');
 
@@ -27,6 +29,8 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+app.use(helmet())
+app.use(compression())
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
