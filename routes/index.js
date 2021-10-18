@@ -4,7 +4,6 @@ let indexController = require('../controllers/indexController')
 let accessController = require('../controllers/accessController')
 
 
-router.get/
 //Get Login Page
 router.get('/favicon.ico', (req,res,next)=>{
     res.sendStatus(204)
