@@ -6,19 +6,18 @@ const bcrypt = require('bcryptjs');
 
 //Home Middleware that fetches and displays all messages & User if logged in
 exports.home = function(req,res,next){
-    // let Messages = Message.find({}).populate('user').exec();
+    let Messages = Message.find({}).populate('user').exec();
 
-    // Messages.then(allMessage=>{
-    //     if (!allMessage) {
-    //         res.render("home", { messages: [] });
-    //     }
-    //     res.render("home", { messages: allMessage });
-    //     return;
-    // })
-    // .catch(err=>{
-    //     next(err);
-    // })
-    res.render('test');
+    Messages.then(allMessage=>{
+        if (!allMessage) {
+            res.render("home", { messages: [] });
+        }
+        res.render("home", { messages: allMessage });
+        return;
+    })
+    .catch(err=>{
+        next(err);
+    })
 }
 
 //Login middleware to fetch login form or redirect to home page if logged in

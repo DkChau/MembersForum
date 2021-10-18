@@ -67,18 +67,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //Middleware to ensure that user object is available for view usage
-// app.use((req, res, next) => {
-//   if(req.isAuthenticated()){
-//     res.locals.currentUser = req.user;
-//   }
-//   else{
-//     res.locals.currentUser = null;
-//   }
-//   next();
-// });
-
-//Loading router and controller middleware
-app.use('/',(req, res, next) => {
+app.use((req, res, next) => {
   if(req.isAuthenticated()){
     res.locals.currentUser = req.user;
   }
@@ -86,7 +75,10 @@ app.use('/',(req, res, next) => {
     res.locals.currentUser = null;
   }
   next();
-}, indexRouter);
+});
+
+//Loading router and controller middleware
+app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
