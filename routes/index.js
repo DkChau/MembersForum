@@ -3,8 +3,12 @@ var router = express.Router();
 let indexController = require('../controllers/indexController')
 let accessController = require('../controllers/accessController')
 
+
+router.get/
 //Get Login Page
-router.get('/', indexController.home);
+router.get('/favicon.ico', (req,res,next)=>{
+    res.sendStatus(204)
+});
 
 //Get Login Page
 router.get("/login", accessController.loggedIn, indexController.getLogin);
