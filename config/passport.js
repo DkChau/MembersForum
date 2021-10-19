@@ -3,6 +3,11 @@ let LocalStrategy = require("passport-local").Strategy;
 let User = require("../models/User");
 let bcrypt = require("bcryptjs");
 
+//Configuration of passport strategy
+//Username is obtained from the form and used to search database
+//If user exists, then compare entered password to database password
+//If all works well, return user using done function
+//If there is an error pass  back false in place of user and flash error messages
 let strategy = new LocalStrategy(
   { passReqToCallback: true },
   (req, username, password, done) => {

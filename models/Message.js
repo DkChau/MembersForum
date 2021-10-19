@@ -10,6 +10,7 @@ let messageSchema = new Schema({
   date: { type: Date, default: Date.now },
 });
 
+//Virtual to ensure properly formatted dates
 messageSchema.virtual("dateAdded").get(function () {
   return DateTime.fromJSDate(this.date).toLocaleString(DateTime.DATE_MED);
 });

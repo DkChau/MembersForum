@@ -10,7 +10,6 @@ let User = require("./models/User");
 const flash = require("connect-flash");
 const compression = require('compression');
 const helmet = require('helmet');
-
 var indexRouter = require('./routes/index');
 
 //Require environment variables
@@ -51,6 +50,7 @@ app.use(function (req, res, next) {
   next();
 });
 
+//Loading passport middleware for serialization and sessions
 require("./config/passport");
 
 passport.serializeUser(function (user, done) {
