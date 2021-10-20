@@ -170,3 +170,9 @@ input[type='password']{
   font: small-caption;
   font-size: 16px;
 }
+
+.noPage{
+  text-align: center;
+  margin-top: 100px;
+  font-size:40px;
+}

@@ -282,3 +282,8 @@ exports.postDeleteMsg = function(req,res,next){
         }
     });    
 }
+
+//Middleware to catch routes that dont exist
+exports.noRoute = function(req,res,next){
+    res.render('404');
+}

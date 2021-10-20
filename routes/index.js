@@ -49,9 +49,7 @@ router.post('/secret-admin', accessController.isMember, indexController.postSecr
 router.get('/delete/:id', accessController.validId, accessController.isAdmin, indexController.getDeleteMsg)
 router.post('/delete/:id', accessController.validId, accessController.isAdmin, indexController.postDeleteMsg)
 
-//Not sure if needed, route to redirect any favicon requests
-// router.get('/favicon.ico', (req,res,next)=>{
-//     res.sendStatus(204)
-// });
+//A catch all route that returns a 404 view for routes that don't exist
+router.get('*', indexController.noRoute);
 
 module.exports = router;
