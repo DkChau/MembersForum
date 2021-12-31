@@ -4,7 +4,7 @@ body{
   width:100%;
   height:auto;
   overflow-y: scroll;
-  background-color: #262727;
+  background-color: #393a3a;
   color:white;
 }
 *,*:before, *:after{
@@ -46,9 +46,16 @@ textarea {
   width: 200px;
   justify-self: center;
   align-self: center;
+  cursor:pointer;
 }
 .deleteMsg {
   padding:5px 10px;
+  cursor:pointer;
+  transition: all 0.2s ease;
+}
+.deleteMsg:hover{
+  background:white;
+  color:black;
 }
 
 /* Nav Bar  Start*/
@@ -56,7 +63,12 @@ textarea {
   font-size: 2rem;
   padding:.25rem .5rem;
   font-weight:700;
-  font-family:'Open Sans'
+  font-family:'Open Sans';
+  cursor:pointer;
+  border:none;
+  color:white;
+  border:2px solid white;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 .navContainer {
   display: flex;
@@ -71,6 +83,7 @@ textarea {
   margin:0 .5rem;
   padding:.15rem .35rem;
   font-size:1.15rem;
+  cursor:pointer;
 }
 /* Nav Bar End */
 
@@ -84,8 +97,12 @@ ul {
 button {
   text-decoration: none;
   border: 1px solid white;
-  background: none;
+  background: #2a2b2b;
   color: white;
+  transition:all 0.2s ease;
+}
+button:hover{
+  transform:scaleX(1.03) scaleY(1.06);
 }
 .error{
   text-align: center;
@@ -105,27 +122,27 @@ button {
 .welcome {
   text-align: center;
   margin-top: 20px;
-  font-size: 24px;
+  font-size: 36px;
+  font-weight:700;
 }
 .messageContainer {
   width: 600px;
   margin: 20px;
   display: flex;
   text-align: start;
-  background: #3b444b;
+  background: #2a2b2b;
   border-radius: 15px;
   padding: 20px 30px;
-  border: 2px solid white;
   justify-content: center;
   align-items: start;
   flex-direction: column;
-  transition: padding 0.3s, width 0.3s;
-
+  /* border:1px solid white; */
+  transition:all 0.2s ease;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
-/* .messageContainer:hover{
-  width:605px;
-  padding: 23px 30px;
-} */
+.messageContainer:hover{
+  transform:scale(1.03);
+}
 .messageContainer li {
   width: 100%;
   margin: 3px 0;
@@ -135,6 +152,8 @@ button {
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  font-family:'Open Sans';
+  font-weight:500;
 }
 .textContainer{
   overflow-x: hidden;
@@ -142,10 +161,14 @@ button {
   text-align: start;
   font-size: 16px;
   white-space: pre-wrap;
+  font-family:'roboto'
 }
 .textHeading{
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 700;
+  border-bottom:2px solid white;
+  font-family:'Open Sans';
+  padding:10px 0;
 }
 
 /* Create message css */
